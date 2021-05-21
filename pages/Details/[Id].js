@@ -13,7 +13,9 @@ export default function Example() {
 
   
   const router = useRouter();
-  const supplierId = router.query.Id?.toString();
+  const supplierId = router.query.Id != null ? router.query.Id?.toString() : 1;
+
+
   let supplierList = require('../Suppliers.json');
 
   const supplier = supplierList.find(x=> x.Id === parseInt(supplierId));
